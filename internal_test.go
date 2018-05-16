@@ -3,18 +3,18 @@
 // license that can be found in the LICENSE file.
 
 /*
-This test file is part of the ltcutil package rather than than the
-ltcutil_test package so it can bridge access to the internals to properly test
+This test file is part of the macutil package rather than than the
+macutil_test package so it can bridge access to the internals to properly test
 cases which are either not possible or can't reliably be tested via the public
 interface. The functions are only exported while the tests are being run.
 */
 
-package ltcutil
+package macutil
 
 import (
-	"github.com/Roasbeef/ltcutil/bech32"
-	"github.com/ltcsuite/ltcd/btcec"
-	"github.com/ltcsuite/ltcutil/base58"
+	"github.com/Roasbeef/macutil/bech32"
+	"github.com/macsuite/macd/btcec"
+	"github.com/macsuite/macutil/base58"
 	"golang.org/x/crypto/ripemd160"
 )
 
@@ -91,14 +91,14 @@ func TstAddressPubKey(serializedPubKey []byte, pubKeyFormat PubKeyFormat,
 }
 
 // TstAddressSAddr returns the expected script address bytes for
-// P2PKH and P2SH litecoin addresses.
+// P2PKH and P2SH machinecoin addresses.
 func TstAddressSAddr(addr string) []byte {
 	decoded := base58.Decode(addr)
 	return decoded[1 : 1+ripemd160.Size]
 }
 
 // TstAddressSegwitSAddr returns the expected witness program bytes for
-// bech32 encoded P2WPKH and P2WSH litecoin addresses.
+// bech32 encoded P2WPKH and P2WSH machinecoin addresses.
 func TstAddressSegwitSAddr(addr string) []byte {
 	_, data, err := bech32.Decode(addr)
 	if err != nil {

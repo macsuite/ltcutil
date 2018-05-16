@@ -9,10 +9,10 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
-	"github.com/ltcsuite/ltcutil/bloom"
+	"github.com/macsuite/macd/chaincfg/chainhash"
+	"github.com/macsuite/macd/wire"
+	"github.com/macsuite/macutil"
+	"github.com/macsuite/macutil/bloom"
 )
 
 func TestMerkleBlock3(t *testing.T) {
@@ -29,7 +29,7 @@ func TestMerkleBlock3(t *testing.T) {
 		t.Errorf("TestMerkleBlock3 DecodeString failed: %v", err)
 		return
 	}
-	blk, err := ltcutil.NewBlockFromBytes(blockBytes)
+	blk, err := macutil.NewBlockFromBytes(blockBytes)
 	if err != nil {
 		t.Errorf("TestMerkleBlock3 NewBlockFromBytes failed: %v", err)
 		return

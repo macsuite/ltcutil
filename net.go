@@ -4,7 +4,7 @@
 
 // +build !appengine
 
-package ltcutil
+package macutil
 
 import (
 	"net"

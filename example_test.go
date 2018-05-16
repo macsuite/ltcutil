@@ -1,21 +1,21 @@
-package ltcutil_test
+package macutil_test
 
 import (
 	"fmt"
 	"math"
 
-	"github.com/ltcsuite/ltcutil"
+	"github.com/macsuite/macutil"
 )
 
 func ExampleAmount() {
 
-	a := ltcutil.Amount(0)
+	a := macutil.Amount(0)
 	fmt.Println("Zero Satoshi:", a)
 
-	a = ltcutil.Amount(1e8)
+	a = macutil.Amount(1e8)
 	fmt.Println("100,000,000 Satoshis:", a)
 
-	a = ltcutil.Amount(1e5)
+	a = macutil.Amount(1e5)
 	fmt.Println("100,000 Satoshis:", a)
 	// Output:
 	// Zero Satoshi: 0 BTC
@@ -24,28 +24,28 @@ func ExampleAmount() {
 }
 
 func ExampleNewAmount() {
-	amountOne, err := ltcutil.NewAmount(1)
+	amountOne, err := macutil.NewAmount(1)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(amountOne) //Output 1
 
-	amountFraction, err := ltcutil.NewAmount(0.01234567)
+	amountFraction, err := macutil.NewAmount(0.01234567)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(amountFraction) //Output 2
 
-	amountZero, err := ltcutil.NewAmount(0)
+	amountZero, err := macutil.NewAmount(0)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(amountZero) //Output 3
 
-	amountNaN, err := ltcutil.NewAmount(math.NaN())
+	amountNaN, err := macutil.NewAmount(math.NaN())
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -55,17 +55,17 @@ func ExampleNewAmount() {
 	// Output: 1 BTC
 	// 0.01234567 BTC
 	// 0 BTC
-	// invalid litecoin amount
+	// invalid machinecoin amount
 }
 
 func ExampleAmount_unitConversions() {
-	amount := ltcutil.Amount(44433322211100)
+	amount := macutil.Amount(44433322211100)
 
-	fmt.Println("Satoshi to kBTC:", amount.Format(ltcutil.AmountKiloBTC))
+	fmt.Println("Satoshi to kBTC:", amount.Format(macutil.AmountKiloBTC))
 	fmt.Println("Satoshi to BTC:", amount)
-	fmt.Println("Satoshi to MilliBTC:", amount.Format(ltcutil.AmountMilliBTC))
-	fmt.Println("Satoshi to MicroBTC:", amount.Format(ltcutil.AmountMicroBTC))
-	fmt.Println("Satoshi to Satoshi:", amount.Format(ltcutil.AmountSatoshi))
+	fmt.Println("Satoshi to MilliBTC:", amount.Format(macutil.AmountMilliBTC))
+	fmt.Println("Satoshi to MicroBTC:", amount.Format(macutil.AmountMicroBTC))
+	fmt.Println("Satoshi to Satoshi:", amount.Format(macutil.AmountSatoshi))
 
 	// Output:
 	// Satoshi to kBTC: 444.333222111 kBTC

@@ -7,8 +7,8 @@ package hdkeychain_test
 import (
 	"fmt"
 
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcutil/hdkeychain"
+	"github.com/macsuite/macd/chaincfg"
+	"github.com/macsuite/macutil/hdkeychain"
 )
 
 // This example demonstrates how to generate a cryptographically random seed
@@ -117,7 +117,7 @@ func Example_defaultWalletLayout() {
 	}
 
 	// Get and show the address associated with the extended keys for the
-	// main litecoin	network.
+	// main machinecoin	network.
 	acct0ExtAddr, err := acct0Ext10.Address(&chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
